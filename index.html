@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی دیجیتال رستوران | [نام رستوران شما]</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1> منوی رستوران نور</h1>
+        <p>تجربه‌ای خوشمزه از غذاهای اصیل  </p>
+    </header>
+
+    <main class="menu-container">
+        
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="جستجو در منو (مثلاً کباب، میرزاقاسمی، دوغ )...">
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                </div>
+        </section>
+
+        <section class="menu-list" id="menuList">
+            </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 | توسعه داده شده برای نور </p>
+    </footer>
+
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
