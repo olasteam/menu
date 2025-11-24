@@ -1,12 +1,12 @@
-/* تعریف متغیرهای CSS برای تم تیره مینیمال */
 :root {
-    --primary-color: #e6b31e; /* طلایی رستورانی (برای برجستگی) */
-    --background-color: #121212; /* پس‌زمینه تیره */
-    --card-color: #1e1e1e; /* کارت‌های کمی روشن‌تر */
-    --text-color: #f0f0f0; /* متن روشن */
-    --light-text-color: #a0a0a0; /* متن کم‌رنگ‌تر */
-    --border-radius: 10px;
-    --spacing-unit: 20px;
+    --primary-color: #2e8b57; 
+    --secondary-color: #f7f3e9; 
+    --card-color: #ffffff; 
+    --text-color: #383838;
+    --light-text-color: #707070;
+    --highlight-color: #ffaa33; 
+    --border-radius: 8px;
+    --spacing-unit: 16px;
 }
 
 * {
@@ -15,151 +15,146 @@
     padding: 0;
 }
 
-/* 1. Mobile-First Base Styles */
 body {
     font-family: 'Vazirmatn', sans-serif;
     direction: rtl;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     color: var(--text-color);
     line-height: 1.6;
-    padding: 0; /* حذف padding در body برای موبایل */
-    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    padding: 0;
+    overflow-x: hidden;
+    /* اعمال سایه ظریف به پس‌زمینه اصلی برای حس عمق */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); 
 }
 
-/* --- Header & Title --- */
 .header {
     text-align: center;
-    padding: var(--spacing-unit);
+    padding: 25px var(--spacing-unit);
     background-color: var(--card-color);
-    border-bottom: 3px solid var(--primary-color);
-    position: sticky; /* چسبیدن هدر هنگام اسکرول */
+    border-bottom: 4px solid var(--primary-color);
+    position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 1.8rem; /* کوچک‌تر برای موبایل */
+    font-size: 1.6rem;
     margin-bottom: 5px;
 }
 
 .header p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--light-text-color);
 }
 
-/* --- Controls (Search & Filter) --- */
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     padding: var(--spacing-unit);
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
 }
 
 .search-box input {
     width: 100%;
-    padding: 12px 15px;
-    border: none;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
     background-color: var(--card-color);
     color: var(--text-color);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: box-shadow 0.3s;
-}
-
-.search-box input::placeholder {
-    color: var(--light-text-color);
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .search-box input:focus {
-    box-shadow: 0 0 0 2px var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.3);
     outline: none;
 }
 
 .filter-buttons {
-    /* اسکرول افقی برای دکمه‌های فیلتر در موبایل */
     display: flex;
     overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 5px; /* برای جلوگیری از بریده شدن سایه */
+    gap: 8px;
+    padding-bottom: 5px;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
 }
 
 .filter-buttons::-webkit-scrollbar {
-    display: none; /* مخفی کردن اسکرول بار در مرورگرهای وب‌کیت */
+    display: none;
 }
 
 
 .filter-button {
-    flex-shrink: 0; /* جلوگیری از کوچک شدن دکمه‌ها */
+    flex-shrink: 0;
     padding: 8px 15px;
-    border: 1px solid var(--light-text-color);
+    border: none; 
     border-radius: 20px;
-    background-color: var(--card-color);
+    background-color: #e0e0e0;
     color: var(--text-color);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .filter-button.active, .filter-button:hover {
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--background-color); /* کنتراست بالا */
+    color: var(--card-color);
+    box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
 }
 
-/* --- Menu List (Mobile Stacking) --- */
 .menu-list {
     display: flex;
-    flex-direction: column; /* نمایش عمودی در موبایل */
-    gap: 15px;
-    padding: var(--spacing-unit);
+    flex-direction: column;
+    gap: var(--spacing-unit);
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
 }
 
-/* --- Item Card (جذاب و مدرن) --- */
 .menu-item {
-    display: flex;
     background: var(--card-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease;
     cursor: pointer;
     overflow: hidden;
+    display: block; 
 }
 
 .menu-item:active {
-    transform: scale(0.98); /* افکت لمس */
+    transform: scale(0.99); 
 }
 
 .item-image {
-    width: 120px; /* اندازه ثابت تصویر در موبایل */
-    height: 120px;
+    width: 100%;
+    height: 160px; 
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
+.menu-item:hover .item-image {
+    transform: scale(1.05); 
+}
+
+
 .item-info {
-    flex-grow: 1;
     padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .item-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 3px;
     color: var(--text-color);
 }
 
 .item-description {
     font-size: 0.85rem;
     color: var(--light-text-color);
-    margin-bottom: 8px;
-    /* محدود کردن به دو خط */
+    margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -168,9 +163,13 @@ body {
 }
 
 .item-price {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--highlight-color);
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: rgba(255, 170, 51, 0.1); 
+    border-radius: 4px;
 }
 
 .no-result {
@@ -179,20 +178,19 @@ body {
     padding: 40px;
 }
 
-/* --- Footer --- */
 .footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 30px;
-    border-top: 1px solid var(--card-color);
+    border-top: 1px solid #ddd;
     color: var(--light-text-color);
     font-size: 0.8rem;
+    background-color: var(--card-color);
 }
 
-/* --- Modal Styles (بدون تغییر زیاد نسبت به قبل، فقط تم تیره) --- */
 .modal {
     display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.5); 
     padding: 10px;
 }
 
@@ -202,8 +200,8 @@ body {
     padding: 20px;
     border-radius: var(--border-radius);
     width: 95%; 
-    max-width: 450px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    max-width: 400px; /* کوچک‌تر برای تمرکز بهتر در موبایل */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     animation: slideIn 0.4s;
 }
 
@@ -217,68 +215,64 @@ body {
 }
 
 .modal-detail-image {
-    width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;
+    width: 100%; height: auto; max-height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;
 }
 
 .modal-detail-name {
     color: var(--primary-color);
-    font-size: 1.7rem; margin-bottom: 8px;
+    font-size: 1.5rem; margin-bottom: 8px;
 }
 
 .modal-detail-price {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #4CAF50; 
+    color: var(--highlight-color); 
     margin-top: 10px;
 }
 
 
-/* 2. Desktop/Tablet Overrides (پایان Mobile-First) */
-/* تغییرات برای صفحه‌های بزرگتر از 768px (تبلت و دسکتاپ) */
 @media (min-width: 768px) {
     body {
-        padding: 20px 40px; /* اضافه کردن padding در دسکتاپ */
+        padding: 20px 60px;
     }
 
     .header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .controls {
-        flex-direction: row; /* بازگشت به ردیف برای کنترل‌ها */
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: var(--spacing-unit) 0;
     }
     
     .search-box {
         flex: 1;
-        max-width: 400px;
+        max-width: 350px;
     }
 
     .filter-buttons {
-        overflow-x: visible; /* حذف اسکرول افقی در دسکتاپ */
+        overflow-x: visible;
         justify-content: flex-end;
     }
     
     .menu-list {
         display: grid;
-        /* سه ستون در دسکتاپ */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        padding: 0 var(--spacing-unit);
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        padding: 0;
     }
     
     .menu-item {
-        display: block; /* نمایش بلوکی در دسکتاپ (کارت کامل) */
+        display: block; 
     }
 
     .item-image {
-        width: 100%;
-        height: 200px;
+        height: 250px;
     }
 }
 
-/* Keyframes */
 @keyframes slideIn {
     from {transform: translateY(-20px); opacity: 0;}
     to {transform: translateY(0); opacity: 1;}
